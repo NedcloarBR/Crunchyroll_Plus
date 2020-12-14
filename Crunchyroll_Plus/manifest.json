@@ -1,0 +1,47 @@
+{
+	"name": "Crunchyroll Plus",
+	"short_name": "CrunchyPlus",
+	"version": "1.0.2",
+	"description": "Crunchyroll Free Premium Animes,\nDark Theme\nAnd Discord RPC!",
+	"author": "NedcloarBR",
+	"icons": {
+		"16": "icon.png",
+		"64": "icon.png",
+		"128": "icon.png"
+	},
+	"browser_action":{
+		"default_title": "Crunchyroll Plus",
+		"default_popup": "popup.html",
+		"default_icon": "icon.png"
+	},
+	"permissions": [
+		"storage",
+		"http://localhost:3000/*",
+		"tabs",
+		"webRequest",
+		"webRequestBlocking"
+        ],
+	"content_scripts": [{
+        "matches": ["http://www.crunchyroll.com/*", "https://www.crunchyroll.com/*"],
+        "css": ["./CSS/content.css", "./CSS/styles_dark.css"],
+		"js": ["content.js", "content_dark.js"],
+		"run_at": "document_end",
+		"all_frames": true
+    }],
+	"background": {
+		"scripts": [
+			"background.js"
+		],
+		"persistent": true
+	},
+	"web_accessible_resources": [
+		"styles.css", 
+		"images/arrows.png", 
+		"images/queue_arrow.png", 
+		"images/queue_dropdown_arrow.png", 
+		"images/quote_start.png", 
+		"images/quote_end.png", 
+		"images/views-count-bubble.png"
+	],
+	"manifest_version": 2
+}

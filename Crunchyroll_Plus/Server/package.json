@@ -1,0 +1,14 @@
+{
+  "name": "richpresence",
+  "version": "1.0.0",
+  "description": "Rich Presence",
+  "main": "Root.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NedcloarBR",
+  "license": "ISC",
+  "dependencies": {
+    "discord-rich-presence": "0.0.8"
+  }
+}
