@@ -1,7 +1,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg) ![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
 
 # O que é o Crunchyroll Plus?
- <br>Uma extensão que permite assistir todo conteúdo da Crunchyroll
+ Uma extensão que permite assistir todo conteúdo da Crunchyroll
  <br>Dark Mode para Crunchyroll
  <br>Em breve com DiscordRPC(RichPresence)
 
