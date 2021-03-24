@@ -36,12 +36,12 @@
 	},
 	"web_accessible_resources": [
 		"styles.css", 
-		"images/arrows.png", 
-		"images/queue_arrow.png", 
-		"images/queue_dropdown_arrow.png", 
-		"images/quote_start.png", 
-		"images/quote_end.png", 
-		"images/views-count-bubble.png"
+		"images/Dark/arrows.png", 
+		"images/Dark/queue_arrow.png", 
+		"images/Dark/queue_dropdown_arrow.png", 
+		"images/Dark/quote_start.png", 
+		"images/Dark/quote_end.png", 
+		"images/Dark/views-count-bubble.png"
 	],
 	"manifest_version": 2
 }

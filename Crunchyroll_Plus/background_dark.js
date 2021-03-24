@@ -76,18 +76,18 @@ const configStore = new ConfigStore(),
 const ICONS = Object.freeze({
   white: {
     path: {
-      '16': 'images/white_crunchyroll_16.png',
-      '48': 'images/white_crunchyroll_48.png',
-      '64': 'images/white_crunchyroll_64.png',
-      '128': 'images/white_crunchyroll_128.png'
+      '16': 'Images/Dark/white_crunchyroll_16.png',
+      '48': 'Images/Dark/white_crunchyroll_48.png',
+      '64': 'Images/Dark/white_crunchyroll_64.png',
+      '128': 'Images/Dark/white_crunchyroll_128.png'
     }
   },
   dark: {
     path: {
-      '16': 'images/dark_crunchyroll_16.png',
-      '48': 'images/dark_crunchyroll_48.png',
-      '64': 'images/dark_crunchyroll_64.png',
-      '128': 'images/dark_crunchyroll_128.png'
+      '16': 'Images/Dark/dark_crunchyroll_16.png',
+      '48': 'Images/Dark/dark_crunchyroll_48.png',
+      '64': 'Images/Dark/dark_crunchyroll_64.png',
+      '128': 'Images/Dark/dark_crunchyroll_128.png'
     }
   }
 }); // get config out of store, and handle undefined cases

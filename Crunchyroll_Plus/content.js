@@ -41,7 +41,7 @@ function importPlayer(){
 			document.body.querySelector(".freetrial-note").style.display = "none";
 		}
 
-		//Remove avisos q o video nn pode ser visto
+		//Remove avisos que o video não pode ser visto
 		if(document.body.querySelector(".showmedia-trailer-notice") != null){
 			console.log("[Crunchyroll Plus] Removendo Trailer Notice...");
 			document.body.querySelector(".showmedia-trailer-notice").style.display = "none";

@@ -21,7 +21,7 @@ function onTabUpdate(id, status, tab){
 		if(status.status != "complete") return;
 		chrome.tabs.query({ active: true }, function (tabs) {
 			windowId = tab.windowId
-			updatePresence(tabs[0].title.split(" - Watch on Crunchyroll")[0]);
+			updatePresence(tabs[0].title.split(" - Assista na Crunchyroll")[0]);
 		});
 	}
 }

@@ -1,5 +1,5 @@
 @echo off
 cd ..
-echo To make CrunchyPlusRPC run at startup, copy the start_crunchycord into the opened folder
+echo Para iniciar a RPC ao iniciar o Windows, copie o Start_RPC para dentro da pasta que vai ser aberta!
 explorer C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 pause
