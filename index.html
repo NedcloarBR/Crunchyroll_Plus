@@ -3,8 +3,8 @@
 <head>
 	<title>Crunchyroll Player</title>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="assets/css/player.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/download_dialog.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/player.css?v=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/download_dialog.css?v=1">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154158844-1"></script>
 	<script>
@@ -16,7 +16,6 @@
 	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="assets/js/jwplayer.js"></script>
-	<script src="assets/js/player.js"></script>
 </head>
 <body>
 	<div class="loading_container">
@@ -34,36 +33,32 @@
 	<div class="modal" style="transform: translate3d(0px, 0px, 0px);visibility: hidden;">
 		   <button class="close-modal">×</button>
 		   <div class="download-item">
-		   	<span class="partdditem hdlabel not-copyable"><sup>HD</sup></span>
-		   	<span class="partdditem quality not-copyable">1080p</span>
-		   	<span id="1080p_down_size" class="partdditem size not-copyable">0 MB</span>
-		   	<a id="1080p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download></a>
+			<span class="partdditem quality not-copyable">1080p<sup>HD</sup></span>
+		   	<span id="1080p_down_size" class="partdditem size not-copyable"><img src="assets/icon/fetching-icon.svg" /> MB</span>
+		   	<a id="1080p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download="1080p"></a>
 		   </div>
 		   <div class="download-item">
-		   	<span class="partdditem hdlabel not-copyable"><sup>HD</sup></span>
-		   	<span class="partdditem quality not-copyable">720p</span>
-		   	<span id="720p_down_size" class="partdditem size not-copyable">0 MB</span>
-		   	<a id="720p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download></a>
+			<span class="partdditem quality not-copyable">720p<sup>HD</sup></span>
+		   	<span id="720p_down_size" class="partdditem size not-copyable"><img src="assets/icon/fetching-icon.svg" /> MB</span>
+		   	<a id="720p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download="720p"></a>
 		   </div>
 		   <div class="download-item">
-		   	<span class="partdditem hdlabel not-copyable"><sup></sup></span>
 		   	<span class="partdditem quality not-copyable">480p</span>
-		   	<span  id="480p_down_size" class="partdditem size not-copyable">0 MB</span>
-		   	<a id="480p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download></a>
+		   	<span  id="480p_down_size" class="partdditem size not-copyable"><img src="assets/icon/fetching-icon.svg" /> MB</span>
+		   	<a id="480p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download="480p"></a>
 		   </div>
 		   <div class="download-item">
-		   	<span class="partdditem hdlabel not-copyable"><sup></sup></span>
 		   	<span class="partdditem quality not-copyable">360p</span>
-		   	<span id="360p_down_size" class="partdditem size not-copyable">0 MB</span>
-		   	<a id="360p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download></a>
+		   	<span id="360p_down_size" class="partdditem size not-copyable"><img src="assets/icon/fetching-icon.svg" /> MB</span>
+		   	<a id="360p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download="360p"></a>
 		   </div>
 		   <div class="download-item">
-		   	<span class="partdditem hdlabel not-copyable"><sup></sup></span>
 		   	<span class="partdditem quality not-copyable">240p</span>
-		   	<span id="240p_down_size" class="partdditem size not-copyable">0 MB</span>
-		   	<a id="240p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download></a>
+		   	<span id="240p_down_size" class="partdditem size not-copyable"><img src="assets/icon/fetching-icon.svg" /> MB</span>
+		   	<a id="240p_down_url" class="partdditem down-icon" href="javascript:void(0);" target="_top" download="240p"></a>
 		   </div>
 	</div>
 	<div id="player_div"></div>
+	<script src="assets/js/player.js"></script>
 </body>
 </html>
