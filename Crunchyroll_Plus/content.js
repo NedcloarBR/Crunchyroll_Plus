@@ -1,6 +1,6 @@
 var HTML = document.documentElement.innerHTML;
 
-//function que pega algo dentro dentro do html.
+// Function que pega algo dentro dentro do html.
 function pegaString(str, first_character, last_character) {
 	if(str.match(first_character + "(.*)" + last_character) == null){
 		return null;
@@ -9,7 +9,7 @@ function pegaString(str, first_character, last_character) {
 	    return(new_str)
     }
 }
-//function que mudar o player para um mais simples.
+// Function que mudar o player para um mais simples.
 function importPlayer(){
 		console.log("[Crunchyroll Plus] Removendo player da Crunchyroll...");
 		var elem = document.getElementById('showmedia_video_player');
@@ -35,24 +35,27 @@ function importPlayer(){
 			document.body.querySelector("#showmedia_video_box_wide").appendChild(ifrm);
 		}
 
-		//Remove Nota do topo sobre experimentar o premium
+		// Remove Nota do topo sobre experimentar o premium
 		if (document.body.querySelector(".freetrial-note") != null) {
 			console.log("[Crunchyroll Plus] Removendo Free Trial Note...");
 			document.body.querySelector(".freetrial-note").style.display = "none";
 		}
 
-		//Remove avisos que o video não pode ser visto
+		// Remove avisos que o video não pode ser visto
 		if(document.body.querySelector(".showmedia-trailer-notice") != null){
 			console.log("[Crunchyroll Plus] Removendo Trailer Notice...");
 			document.body.querySelector(".showmedia-trailer-notice").style.display = "none";
 		}
 
-		//Remove sugestão de inscrever-se para o trial gratuito
+		// Remove sugestão de inscrever-se para o trial gratuito
 		if(document.body.querySelector("#showmedia_free_trial_signup") != null){
 			console.log("[Crunchyroll Plus] Removendo Free Trial Signup...");
 			document.body.querySelector("#showmedia_free_trial_signup").style.display = "none";
 		}
-		
+
+		// Simular interação do usuário para deixar em fullscreen automaticamente
+		var element = document.getElementById("template_scroller");
+		if (element) element.click();
 
 		ifrm.onload = function(){
 			ifrm.contentWindow.postMessage({
@@ -63,7 +66,7 @@ function importPlayer(){
 
 		//console.log(video_config_media);
 }
-//function ao carregar pagina.
+// Function ao carregar pagina.
 function onloadfunction() {
 	if(pegaString(HTML, "vilos.config.media = ", ";") != null){
 		importPlayer();

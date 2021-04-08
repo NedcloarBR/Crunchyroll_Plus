@@ -9,11 +9,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./CSS/popup.css">
 <link rel="stylesheet" href="./CSS/DarkButton.css">
+<link rel="stylesheet" href="./CSS/NextEp.css">
 <div class="card">
     <div class="box">
         <div class="img">
             <img src="logo.png">
         </div>
+        
         <h2><a href="https://www.crunchyroll.com/" target="_blank">Crunchyroll</a><br><span>Plus</span></h2>
         <p>Feito por NedcloarBR</p>
         <!--
@@ -29,10 +31,16 @@
         </span>
         <h3>Toggle Dark Mode(WIP)</h3>
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="darkmodebutton" name="darkmode" checked>
                 <span class="button"><script src="background_script.js"></script></span>
+        <h3>A seguir Automático</h3>
         </label>
+            <input type="checkbox" id="aseguir" name="aseguir" checked>
+            <!-- <label for="aseguir"><strong>A seguir</strong> automático   </label> -->
+        <br/><br/>
+        Exibir faltando <input type="number" id="cooldown" style="width: 50px;" min="0" value="5"> segundos.
     </div>
 </div>
 </body>
 </html>
+<script src="popup.js"></script>
