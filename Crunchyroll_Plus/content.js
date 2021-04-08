@@ -57,12 +57,21 @@ function importPlayer(){
 		var element = document.getElementById("template_scroller");
 		if (element) element.click();
 
-		ifrm.onload = function(){
-			ifrm.contentWindow.postMessage({
-           		'video_config_media': [JSON.stringify(video_config_media)],
-           		'lang': [pegaString(HTML, 'LOCALE = "', '",')]
-        	},"*");
-	    };
+		iconst series = document.querySelector('meta[property="og:title"]');
+		const up_next = document.querySelector('link[rel=next]');
+		chrome.storage.sync.get(['aseguir', 'cooldown'], function(items) {
+			ifrm.onload = function(){
+				ifrm.contentWindow.postMessage({
+           			'video_config_media': [JSON.stringify(video_config_media)],
+				   	'lang': [pegaString(HTML, 'LOCALE = "', '",')],
+				   	'series': series ? series.content : undefined,
+				   	'up_next': up_next ? up_next.href : undefined,
+				   	'up_next_cooldown': items.cooldown === undefined ? 5 : items.cooldown,
+				   	'up_next_enable': items.aseguir === undefined ? true : items.aseguir,
+				   	'version': "1.0.2"
+        		},"*");
+			};
+		});
 
 		//console.log(video_config_media);
 }
