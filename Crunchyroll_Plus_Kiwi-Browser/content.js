@@ -14,7 +14,7 @@ function pegaString(str, first_character, last_character) {
 //function que optimiza a pagina para dispositivos mobile.
 function optimize_for_mobile() {
 
-		console.log("[CR Premium] Optimizando página para mobile...");
+		console.log("[Crunchyroll Plus] Optimizando página para mobile...");
 		//Verifica quantos videos do slider cabem na tela.
 		width = document.body.offsetWidth;
 		var carousel_move_times = 0;
@@ -114,16 +114,16 @@ function optimize_for_mobile() {
 function importPlayer() {
 
 		//Remove o player do Crunchyroll.
-		console.log("[CR Premium] Removendo player da Crunchyroll...");
+		console.log("[Crunchyroll Plus] Removendo player da Crunchyroll...");
 		var elem = document.getElementById('showmedia_video_player');
     	elem.parentNode.removeChild(elem);
 
     	//Pega os dados de stream da variável presente no html.
-		console.log("[CR Premium] Pegando dados da stream...");
+		console.log("[Crunchyroll Plus] Pegando dados da stream...");
 		var video_config_media = JSON.parse(pegaString(HTML, "vilos.config.media = ", ";"));
 
 		//Adiciona o iframe com o jwplayer
-    	console.log("[CR Premium] Adicionando o jwplayer...");
+    	console.log("[Crunchyroll Plus] Adicionando o jwplayer...");
     	ifrm = document.createElement("iframe");
     	ifrm.setAttribute("id", "frame"); 
 		ifrm.setAttribute("src", "https://NedcloarBR.github.io/Crunchyroll_Plus/"); 
@@ -147,14 +147,27 @@ function importPlayer() {
 		if(document.body.querySelector("#showmedia_free_trial_signup") != null){
 			document.body.querySelector("#showmedia_free_trial_signup").style.display = "none";
 		}
+	
+		// Simular interação do usuário para deixar em fullscreen automaticamente
+		var element = document.getElementById("template_scroller");
+		if (element) element.click();
 
-		//Ao carregar o iframe, manda uma mensagem para o iframe com os dados da stream.
-		ifrm.onload = function(){
-			ifrm.contentWindow.postMessage({
-           		'video_config_media': [JSON.stringify(video_config_media)],
-           		'lang': [pegaString(HTML, 'LOCALE = "', '",')]
-        	},"*");
-	    };
+		const series = document.querySelector('meta[property="og:title"]');
+		const up_next = document.querySelector('link[rel=next]');
+		chrome.storage.sync.get(['darkmode', 'aseguir', 'cooldown'], function(items) {
+			ifrm.onload = function(){
+				ifrm.contentWindow.postMessage({
+           			'video_config_media': [JSON.stringify(video_config_media)],
+				   	'lang': [pegaString(HTML, 'LOCALE = "', '",')],
+				   	'series': series ? series.content : undefined,
+				   	'up_next': up_next ? up_next.href : undefined,
+				   	'up_next_cooldown': items.cooldown === undefined ? 5 : items.cooldown,
+				   	'up_next_enable': items.aseguir === undefined ? true : items.aseguir,
+					'darkmode': items.darkmode === undefined ? true : items.darkmode,
+				   	'version': "1.0.4"
+        		},"*");
+			};
+		});
 
 		console.log(video_config_media);
 
