@@ -57,8 +57,10 @@ function importPlayer(){
 		// Simular interação do usuário para deixar em fullscreen automaticamente
 		var element = document.getElementById("template_scroller");
 		if (element) element.click();
+		const series = document.querySelector('meta[property="og:title"]');
 
 		const series = document.querySelector('meta[property="og:title"]');
+
 		const up_next = document.querySelector('link[rel=next]');
 		chrome.storage.sync.get(['aseguir', 'cooldown'], function(items) {
 			ifrm.onload = function(){
