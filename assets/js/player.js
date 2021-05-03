@@ -17,8 +17,8 @@ window.addEventListener("message", async e => {
 
 	let rgx = /http.*$/gm;
 	let streamrgx = /_,(\d+.mp4),(\d+.mp4),(\d+.mp4),(\d+.mp4),(\d+.mp4),.*?m3u8/;
-	let video_config_media = JSON.parse(e.data.video_config_media);
 	let streamrgx_three = /_,(\d+.mp4),(\d+.mp4),(\d+.mp4),.*?m3u8/;
+	let video_config_media = JSON.parse(e.data.video_config_media);
 	let allorigins = "https://crp-proxy.herokuapp.com/get?url=";
 	let video_id = video_config_media['metadata']['id'];
 	let up_next_cooldown = e.data.up_next_cooldown;
@@ -46,15 +46,13 @@ window.addEventListener("message", async e => {
 	// Obter streams
 	const streamlist = video_config_media['streams'];
 	for (let stream of streamlist) {
-		// Premium
+		// Premium                                                             (                                                          ) - versões "International Dub"
 		if (stream.format == 'trailer_hls' && stream.hardsub_lang == user_lang || (streamlist.length < 15 && stream.hardsub_lang === null))
 			if (rows_number <= 4) {
 				// video_m3u8_array.push(await getDirectStream(stream.url, rows_number));
-				const arr_idx = (rows_number === 1 ? 2 : (rows_number === 2 ? 1 : rows_number));
+				const arr_idx = (rows_number === 0 ? 2 : (rows_number === 2 ? 0 : rows_number));
 				video_mp4_array[arr_idx] = getDirectFile(stream.url);
-				//video_mp4_array.push(getDirectFile(stream.url));
 				rows_number++;
-				
 				// mp4 + resolve temporario até pegar link direto da m3u8
 				if (rows_number > 4) {
 					video_m3u8_array = video_mp4_array;
@@ -174,7 +172,7 @@ window.addEventListener("message", async e => {
 		let download_tooltipText = "Download";
 		let didDownload = false;
 
-		// Funcion ao clicar no botão de fechar o menu de download
+		// Function ao clicar no botõo de fechar o menu de download
 		const downloadModal = document.querySelectorAll(".modal")[0];
 		const updateModal = document.querySelectorAll(".modal")[1];
 		document.querySelectorAll("button.close-modal")[0].onclick = () =>
@@ -235,7 +233,7 @@ window.addEventListener("message", async e => {
 			// Mantem fullscreen + autoplay caso tenha sido redirecionado usando a função "A seguir"/"Next up"
 			if (localStorage.getItem("next_up") === "true") {
 				localStorage.setItem("next_up", false)
-				//jwplayer().setFullscreen(localStorage.getItem("next_up_fullscreen"));// <- problemas com fullscreen automatico
+				// jwplayer().setFullscreen(localStorage.getItem("next_up_fullscreen")); <- problemas com fullscreen automatico
 				jwplayer().play();
 			}
 
@@ -292,11 +290,10 @@ window.addEventListener("message", async e => {
 		const cleanUrl = url.replace('evs1', 'evs').replace(url.split("/")[2], "fy.v.vrv.co");
 		const res = [];
 		for (let i in r)
-		if (streamrgx_three.test(cleanUrl) && i <= 2) // por algum motivo alguns videos da CR tem apenas 3 resoluções
+			if (streamrgx_three.test(cleanUrl) && i <= 2) // por algum motivo alguns videos da CR tem apenas 3 resoluções
 				res.push(cleanUrl.replace(streamrgx_three, `_$${(parseInt(i)+1)}`))
 			else
-				res.push(cleanUrl.replace(streamrgx, `_$${(parseInt(i)+1)}`))	
-		//res.push(cleanUrl.replace(streamrgx, `_$${(parseInt(i)+1)}`))
+				res.push(cleanUrl.replace(streamrgx, `_$${(parseInt(i)+1)}`))
 		return res;
 	}
 
