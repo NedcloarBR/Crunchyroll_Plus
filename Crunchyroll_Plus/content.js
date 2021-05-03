@@ -22,6 +22,7 @@ function importPlayer(){
     	ifrm = document.createElement("iframe");
     	ifrm.setAttribute("id", "frame"); 
 		ifrm.setAttribute("src", "https://NedcloarBR.github.io/Crunchyroll_Plus/"); 
+		//ifrm.setAttribute("src", "http://127.0.0.1:5500/"); 
 		ifrm.setAttribute("width","100%");
 		ifrm.setAttribute("height","100%");
 		ifrm.setAttribute("frameborder","0");
@@ -57,12 +58,21 @@ function importPlayer(){
 		var element = document.getElementById("template_scroller");
 		if (element) element.click();
 
-		ifrm.onload = function(){
-			ifrm.contentWindow.postMessage({
-           		'video_config_media': [JSON.stringify(video_config_media)],
-           		'lang': [pegaString(HTML, 'LOCALE = "', '",')]
-        	},"*");
-	    };
+		const series = document.querySelector('meta[property="og:title"]');
+		const up_next = document.querySelector('link[rel=next]');
+		chrome.storage.sync.get(['aseguir', 'cooldown'], function(items) {
+			ifrm.onload = function(){
+				ifrm.contentWindow.postMessage({
+           			'video_config_media': [JSON.stringify(video_config_media)],
+				   	'lang': [pegaString(HTML, 'LOCALE = "', '",')],
+				   	'series': series ? series.content : undefined,
+				   	'up_next': up_next ? up_next.href : undefined,
+				   	'up_next_cooldown': items.cooldown === undefined ? 5 : items.cooldown,
+				   	'up_next_enable': items.aseguir === undefined ? true : items.aseguir,
+				   	'version': "1.0.5"
+        		},"*");
+			};
+		});
 
 		//console.log(video_config_media);
 }

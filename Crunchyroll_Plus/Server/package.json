@@ -1,19 +1,20 @@
 {
-  "name": "richpresence",
+  "name": "crunchyrpc",
   "version": "1.0.0",
-  "description": "Rich Presence",
+  "description": "",
   "main": "Root.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Root.js"
-  },
-  "author": "NedcloarBR",
-  "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.6",
     "discord-rich-presence": "0.0.8",
-    "discord-rpc": "^3.1.4"
+    "discord-rpc": "^3.2.0",
+    "jsdom": "^16.5.2",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
   },
-  "devDependencies": {
-    "pm2": "^4.4.1"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
