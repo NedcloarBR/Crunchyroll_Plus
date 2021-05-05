@@ -138,7 +138,7 @@ window.addEventListener("message", async e => {
             		"title": video_config_media['metadata']['up_next']['display_episode_number'] + ' - ' + video_config_media['metadata']['up_next']['series_title'],
 					"file": "https://i.imgur.com/8wEeX0R.mp4",
 					"repeat": true,
-            		"image": thumbs[thumbs.length-1].url
+            		"image": thumbs[thumbs.length-1].url,
 				} : {}
 			],
 			"related": {displayMode: 'none'},
@@ -235,6 +235,8 @@ window.addEventListener("message", async e => {
 				localStorage.setItem("next_up", false)
 				// jwplayer().setFullscreen(localStorage.getItem("next_up_fullscreen")); <- problemas com fullscreen automatico
 				jwplayer().play();
+				// jwplayer().setFullscreen(true);
+				// jwplayer().onDisplayClick(function() { jwplayer().setFullscreen(true); })
 			}
 
 			document.body.querySelector(".loading_container").style.display = "none";

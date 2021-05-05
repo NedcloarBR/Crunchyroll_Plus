@@ -1,4 +1,4 @@
-const darktheme = document.createElementById('darkmode');
+const darktheme = document.getElementById('darkmode');
 const aseguir = document.getElementById('aseguir');
 const cooldown = document.getElementById('cooldown');
 

@@ -163,8 +163,8 @@ function importPlayer() {
 				   	'up_next': up_next ? up_next.href : undefined,
 				   	'up_next_cooldown': items.cooldown === undefined ? 5 : items.cooldown,
 				   	'up_next_enable': items.aseguir === undefined ? true : items.aseguir,
-					'darkmode': items.darkmode === undefined ? true : items.darkmode,
-				   	'version': "1.0.4"
+					'darktheme': items.darkmode === undefined ? true : items.darkmode,
+				   	'version': "1.0.5"
         		},"*");
 			};
 		});
