@@ -28,12 +28,6 @@
 		"run_at": "document_end",
 		"all_frames": true
     }],
-	"background": {
-		"scripts": [
-			"background.js"
-		],
-		"persistent": true
-	},
 	"web_accessible_resources": [
 		"styles.css", 
 		"images/Dark/arrows.png", 
