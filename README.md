@@ -1,3 +1,7 @@
+Projeto abandonado por conta de falta de tempo e dedicação...
+recomendo que migre para esta versão que está em constante desenvolvimento feita por [Mateus7G](https://github.com/Mateus7G) 
+Link do Repositorio: [Clique aqui!](https://github.com/Mateus7G/crp-iframe-player)
+
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) ![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg) ![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)
 
 # O que é o Crunchyroll Plus?
